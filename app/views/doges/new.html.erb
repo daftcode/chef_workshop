@@ -1,0 +1,5 @@
+<%= form_for @doge, remote: true do |f| %>
+  <%= f.text_field :name, placeholder: 'Doge name...' %>
+  <%= f.submit 'Generate' %>
+<% end %>
+<img id="doge_image"/>
