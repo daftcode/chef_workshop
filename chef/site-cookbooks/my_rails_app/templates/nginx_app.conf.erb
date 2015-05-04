@@ -1,0 +1,21 @@
+upstream <%= node['app'] %> {
+  server <%= node['socket_path'] %>;
+}
+
+server {
+  listen 80;
+  root /home/<%= node['user']['name'] %>/<%= node['app'] %>/current/public;
+
+  location / {
+    proxy_pass http://<%= node['app'] %>;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+
+  location ^~ /assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+}

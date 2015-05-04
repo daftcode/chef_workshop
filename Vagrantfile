@@ -1,3 +1,4 @@
+#!ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -67,14 +68,23 @@ Vagrant.configure(2) do |config|
     chef.cookbooks_path = "chef/site-cookbooks"
     chef.run_list = [
       'recipe[my_rails_app]',
-      'recipe[my_rails_app::users]'
+      'recipe[my_rails_app::users]',
+      'recipe[my_rails_app::nginx]',
+      'recipe[my_rails_app::rvm]',
     ]
+    chef.log_level = :debug
     chef.json = {
       group: 'doge',
       user: {
         name: 'doge',
-        pass: '$1$DVCAMjWo$Tq3EbIHJCVc4xoUjjOqmo/' # dogeIsAwesome
-      }
+        pass: '$1$DVCAMjWo$Tq3EbIHJCVc4xoUjjOqmo/', # dogeIsAwesome
+      },
+      rvm: {
+        version: '1.26',
+      },
+      ruby: {
+        version: '2.2.2',        
+      },
     }
   end
 end
