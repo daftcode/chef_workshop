@@ -1,8 +1,12 @@
 form#new_doge {
   text-align: center;
 
-  input[type=text] {
+  input {
     display: block;
+    &:focus {outline: none}
+  }
+
+  input[type=text] {
     margin: 0 auto;
     width: 320px;
     font-size: 18px;
@@ -13,7 +17,6 @@ form#new_doge {
   }
 
   input[type=submit] {
-    display: block;
     margin: 20px auto;
     background: black;
     border: none;
@@ -28,4 +31,5 @@ form#new_doge {
 #doge_image {
   display: none;
   width: 360px;
+  &:focus {outline: none}
 }
