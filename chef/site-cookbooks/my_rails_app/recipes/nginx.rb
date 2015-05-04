@@ -16,7 +16,7 @@ end
 template "/etc/nginx/sites-enabled/#{node['app']}" do
   source "nginx_app.conf.erb"
   mode 0644
-  owner node['user']['name']
+  owner node['user']
   group node['group']
   notifies :restart, "service[nginx]", :delayed
 end
