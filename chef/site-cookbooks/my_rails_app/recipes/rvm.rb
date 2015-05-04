@@ -1,4 +1,4 @@
-username = node['user']['name']
+username = node['user']
 
 bash 'install rvm' do
   user username
@@ -13,5 +13,5 @@ bash 'install rvm' do
     rvm use --default #{node['ruby']['version']}
   EOH
 
-  #not_if { File.exists?("/home/#{username}/.rvm/VERSION") && `cat /home/#{username}/.rvm/VERSION`.start_with?(node['rvm']['version']) }
+  not_if { File.exists?("/home/#{username}/.rvm/VERSION") && `cat /home/#{username}/.rvm/VERSION`.start_with?(node['rvm']['version']) }
 end

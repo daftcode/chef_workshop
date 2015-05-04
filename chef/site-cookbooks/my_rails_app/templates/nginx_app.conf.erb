@@ -1,10 +1,10 @@
 upstream <%= node['app'] %> {
-  server <%= node['socket_path'] %>;
+  server <%= node['nginx_server'] %>;
 }
 
 server {
   listen 80;
-  root /home/<%= node['user']['name'] %>/<%= node['app'] %>/current/public;
+  root /home/<%= node['user'] %>/<%= node['app'] %>/current/public;
 
   location / {
     proxy_pass http://<%= node['app'] %>;
