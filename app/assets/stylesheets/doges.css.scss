@@ -1,0 +1,31 @@
+form#new_doge {
+  text-align: center;
+
+  input[type=text] {
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid black;
+    text-align: center;
+  }
+
+  input[type=submit] {
+    display: block;
+    margin: 20px auto;
+    background: black;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    color: white;
+    padding: 10px 30px;
+  }
+
+}
+
+#doge_image {
+  display: none;
+  width: 360px;
+}

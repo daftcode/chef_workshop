@@ -44,4 +44,4 @@ group :development, :test do
 end
 
 gem 'puma'
-
+gem 'rmagick', '2.13.2'
